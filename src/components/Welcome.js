@@ -14,17 +14,37 @@ export default class Welcome extends React.Component {
   // component
   handleChangeFirst(_event) {
     let prevNameState = this.state.name;
-    this.setState({ name: { ...prevNameState, first: _event.target.value } });
+
+    // the destructuring - take everthing that was in name and assign
+    // it to name, then set the value of the first name based on the
+    // _event.target.value
+    this.setState({
+      name: {
+        ...prevNameState,
+        first: _event.target.value
+      }
+    });
   }
 
   // using fat arrow, we dont need binding
   // javasctipt destructuring
   handleChangeLast = _event => {
     let prevNameState = this.state.name;
-    this.setState({ name: { ...prevNameState, last: _event.target.value } });
+
+    // the destructuring - take everthing that was in name and assign
+    // it to name, then set the value of the last name based on the
+    // _event.target.value
+    this.setState({
+      name: {
+        ...prevNameState,
+        last: _event.target.value
+      }
+    });
   };
 
   // using fat arrow, we dont need binding
+  // call the function that was passed in as a property
+  // from the parent component, "App"
   handleBtnClick = _event => {
     this.props.onWelcomeSubmit(this.state.name);
   };
